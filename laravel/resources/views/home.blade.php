@@ -93,7 +93,7 @@
                     @endif
 
                     <div class="row d-flex justify-content-center">
-                        <a class="cardbtn streched-link col-12 p-0" onclick="setCookie('halaman', 'kurikulum')" href="http://siska.stmikbandung.test:81/kurikulum">
+                        <a class="cardbtn streched-link col-12 p-0" onclick="session(['halaman' => 'kurikulum']);" href="http://siska.stmikbandung.test:81/kurikulum">
                             <div class="col-4 icon">
                                 <i class="fa-solid fa-person-chalkboard" style="margin-left: 20px"></i>
                             </div>
@@ -104,7 +104,7 @@
                     {{-- </div>
 
                     <div class="row"> --}}
-                        <a class="cardbtn streched-link col-12 p-0" onclick="setCookie('halaman', 'mahasiswa')" href="http://siska.stmikbandung.test:81/mahasiswa">
+                        <a class="cardbtn streched-link col-12 p-0" onclick="session(['halaman' => 'mahasiswa']);" href="http://siska.stmikbandung.test:81/mahasiswa">
                             <div class="col-4 icon">
                                 <i class="fa-solid fa-user-graduate" style="margin-left: 20px"></i>
                             </div>
@@ -115,7 +115,7 @@
                     {{-- </div>
 
                     <div class="row"> --}}
-                        <a class="cardbtn streched-link col-12 p-0" onclick="setCookie('halaman', 'evaluasi')" href="http://siska.stmikbandung.test:81/evaluasi">
+                        <a class="cardbtn streched-link col-12 p-0" onclick="session(['halaman' => 'evaluasi']);" href="http://siska.stmikbandung.test:81/evaluasi">
                             <div class="col-4 icon">
                                 <i class="fa-solid fa-book-open" style="margin-left: 20px"></i>
                             </div>
@@ -138,10 +138,10 @@
 @push('scripts')
     <script type="text/javascript">
         function setCookie(cname, cvalue) {
-            // var d = new Date();
-            // d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            // var expires = "expires="+d.toUTCString();
-            // document.cookie = cname + "=" + cvalue + "; " + expires;
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
             sessionStorage.setItem(cname, cvalue);
         }
         var cookieString = getCookie("halaman");

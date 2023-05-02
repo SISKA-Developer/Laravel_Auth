@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
+Auth::routes(['logout'=> false]);
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/sso/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('sso.logout');
